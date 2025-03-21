@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter number of rows: ";
+    cin >> n;
+
+    int triangle[30][30]; //given constraint
+
+    for (int i = 0; i < n; i++) {
+
+        cout << "["; //first opening bracket
+
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || j == i)
+                triangle[i][j] = 1;
+            else
+                triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+
+            cout <<  triangle[i][j];
+            if (j < i) cout << ","; //commas between elements of each row
+        }
+        cout << "]"; //close the bracket before moving to the next row
+    }
+
+    return 0;
+}
